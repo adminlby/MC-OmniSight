@@ -1,0 +1,4 @@
+name: MC-OmniSight
+version: '1.0-SNAPSHOT'
+main: org.lbynb.mCOmniSight.MCOmniSight
+api-version: '1.19'
