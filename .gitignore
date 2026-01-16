@@ -1,0 +1,10 @@
+pom.xml.tagpom.xml.releaseBackuppom.xml.versionsBackuprelease.propertiesdependency-reduced-pom.xml# Java / Build*.class*.log*.tmp*.cache*.out# IntelliJ IDEA.idea/
+*.iml*.ipr*.iwsout/
+
+# VSCode（如偶尔使用）
+.vscode/
+.idea/
+
+# OS.DS_StoreThumbs.db# Minecraft 插件plugins/
+*.jar*.zip*.bak#运行时/调试logs/
+crash-reports/

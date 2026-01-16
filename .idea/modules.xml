@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MC-OmniSight.iml" filepath="$PROJECT_DIR$/MC-OmniSight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MC-OmniSight.iml" filepath="$PROJECT_DIR$/.idea/MC-OmniSight.iml" />
     </modules>
   </component>
 </project>
