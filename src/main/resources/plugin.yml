@@ -2,3 +2,10 @@ name: MC-OmniSight
 version: '1.0-SNAPSHOT'
 main: org.lbynb.mCOmniSight.MCOmniSight
 api-version: '1.19'
+commands:
+  placecamera:
+    description: Place a camera at your location.
+    usage: /placecamera <type>
+  removecamera:
+    description: Remove a camera you own.
+    usage: /removecamera
