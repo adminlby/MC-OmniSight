@@ -12,6 +12,8 @@ public final class MCOmniSight extends JavaPlugin {
         getLogger().info("MASS Plugin Enabled");
         DatabaseManager.initialize();
         
+        CameraProtectListener.reloadProtectedChunks();
+        
         getCommand("mass").setExecutor(new CameraCommand());
         
         getServer().getPluginManager().registerEvents(new CameraProtectListener(), this);

@@ -92,6 +92,8 @@ public class CameraCommand implements CommandExecutor {
         armorStand.getEquipment().setHelmet(helmet);
 
         cameraEntities.put(cameraId, armorStand);
+        
+        org.lbynb.mCOmniSight.listeners.CameraProtectListener.reloadProtectedChunks();
 
         player.sendMessage("§aCamera created successfully!");
         player.sendMessage("§7ID: §f" + cameraId.toString());
