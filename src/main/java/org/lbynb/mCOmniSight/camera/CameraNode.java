@@ -7,13 +7,13 @@ import org.bukkit.Location;
 public class CameraNode {
     private UUID id;
     private Location loc;
-    private CameraType type;
+    private String type; // Changed to String to match prompt
     private float yaw;
     private float pitch;
     private boolean isActive;
     private List<String> whitelist;
 
-    public CameraNode(UUID id, Location loc, CameraType type, float yaw, float pitch, boolean isActive, List<String> whitelist) {
+    public CameraNode(UUID id, Location loc, String type, float yaw, float pitch, boolean isActive, List<String> whitelist) {
         this.id = id;
         this.loc = loc;
         this.type = type;
@@ -40,11 +40,11 @@ public class CameraNode {
         this.loc = loc;
     }
 
-    public CameraType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(CameraType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
