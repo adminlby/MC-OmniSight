@@ -81,7 +81,11 @@ public class DatabaseManager {
                 double y = rs.getDouble("y");
                 double z = rs.getDouble("z");
                 String worldName = rs.getString("world");
-                Location loc = new Location(Bukkit.getWorld(worldName), x, y, z);
+                org.bukkit.World world = Bukkit.getWorld(worldName);
+                if (world == null) {
+                    continue;
+                }
+                Location loc = new Location(world, x, y, z);
                 CameraType type = CameraType.valueOf(rs.getString("type"));
                 float yaw = rs.getFloat("yaw");
                 float pitch = rs.getFloat("pitch");
@@ -110,7 +114,11 @@ public class DatabaseManager {
                 double y = rs.getDouble("y");
                 double z = rs.getDouble("z");
                 String worldName = rs.getString("world");
-                Location loc = new Location(Bukkit.getWorld(worldName), x, y, z);
+                org.bukkit.World world = Bukkit.getWorld(worldName);
+                if (world == null) {
+                    return null;
+                }
+                Location loc = new Location(world, x, y, z);
                 CameraType type = CameraType.valueOf(rs.getString("type"));
                 float yaw = rs.getFloat("yaw");
                 float pitch = rs.getFloat("pitch");

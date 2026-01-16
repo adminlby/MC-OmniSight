@@ -17,15 +17,17 @@ import org.lbynb.mCOmniSight.database.DatabaseManager;
 
 public class CameraProtectListener implements Listener {
     
-    private static final Map<String, UUID> protectedChunks = new HashMap<>();
+    private static final Map<String, CameraNode> protectedChunks = new HashMap<>();
 
     public static void reloadProtectedChunks() {
         protectedChunks.clear();
         List<CameraNode> cameras = DatabaseManager.loadAllCameras();
         for (CameraNode camera : cameras) {
-            Chunk chunk = camera.getLoc().getChunk();
-            String chunkKey = getChunkKey(chunk);
-            protectedChunks.put(chunkKey, camera.getId());
+            if (camera.getLoc() != null && camera.getLoc().getWorld() != null) {
+                Chunk chunk = camera.getLoc().getChunk();
+                String chunkKey = getChunkKey(chunk);
+                protectedChunks.put(chunkKey, camera);
+            }
         }
     }
 
@@ -44,13 +46,10 @@ public class CameraProtectListener implements Listener {
         Chunk chunk = event.getBlock().getChunk();
         String chunkKey = getChunkKey(chunk);
         
-        UUID cameraId = protectedChunks.get(chunkKey);
-        if (cameraId != null) {
-            CameraNode camera = DatabaseManager.getCameraById(cameraId);
-            if (camera != null && !camera.getWhitelist().contains(player.getName())) {
-                event.setCancelled(true);
-                player.sendMessage("§cYou cannot break blocks in this camera's protected area!");
-            }
+        CameraNode camera = protectedChunks.get(chunkKey);
+        if (camera != null && !camera.getWhitelist().contains(player.getName())) {
+            event.setCancelled(true);
+            player.sendMessage("§cYou cannot break blocks in this camera's protected area!");
         }
     }
 

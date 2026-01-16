@@ -89,7 +89,10 @@ public class CameraCommand implements CommandExecutor {
         armorStand.addScoreboardTag("camera_id_" + cameraId.toString());
         
         ItemStack helmet = new ItemStack(Material.OBSERVER);
-        armorStand.getEquipment().setHelmet(helmet);
+        org.bukkit.inventory.EntityEquipment equipment = armorStand.getEquipment();
+        if (equipment != null) {
+            equipment.setHelmet(helmet);
+        }
 
         cameraEntities.put(cameraId, armorStand);
         
