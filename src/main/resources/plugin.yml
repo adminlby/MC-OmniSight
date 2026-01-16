@@ -9,3 +9,11 @@ commands:
   removecamera:
     description: Remove a camera you own.
     usage: /removecamera
+  mass:
+    description: Main command for MASS camera management.
+    usage: /mass <create|manage> [arguments]
+    permission: mass.admin
+permissions:
+  mass.admin:
+    description: Allows use of all MASS camera commands
+    default: op
